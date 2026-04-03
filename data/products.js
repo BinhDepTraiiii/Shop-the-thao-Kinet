@@ -3,7 +3,7 @@ const products = [
     id : 1,
     name : "Áo thun thể thao Kinet",
     price : 399000,
-    image : "https://product.hstatic.net/1000026716/product/ao-thun-the-thao-nam-kinet-ktm-001-1_9b8c5e7a0c3b4e5a9d1f2c8e7b8c9f.jpg"
+    image : "https://product.hstatic.net/1000026716/product/ao-thun-the-thao-nam-kinet-ktm-001-1_9b8c5e7a0c3b4e5a9d1f2c8e7b8c9f.jpg",
 },
 {
     id : 2,

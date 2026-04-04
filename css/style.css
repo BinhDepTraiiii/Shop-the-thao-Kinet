@@ -82,3 +82,29 @@ button:hover {
 .product-detail button:hover {
   background: #0056b3;
 }
+header{
+  display : flex;
+  justify-content : space-between;
+  align-items : center;
+  padding : 15px;
+  background : white;
+  border-bottom : 1px solid #eee;
+  position : sticky;
+  top : 0;
+  z-index : 1000;
+}
+.logo h1 {
+  margin : 0;
+  font-size : 24px;
+  font-weight : bold;
+  color : #333;
+}
+nav ul {
+  list-style: none;
+  display : flex;
+  margin : 10;
+  padding : 0;
+  transition : color 0.3s;
+  font-weight : bold;
+  gap : 20px;
+} 

@@ -10,15 +10,25 @@ function createProductList() {
             <p>${product.price.toLocaleString()}₫</p>
             <button class="btn-buy" data-id="${product.id}">Mua</button>
         `;
-        productItem.addEventListener('click', () => {
+        productItem.querySelector("h3").addEventListener('click', () => {
             window.location.href = `productDetail.html?id=${product.id}`;
         });
         const btnBuy = productItem.querySelector('.btn-buy');
         btnBuy.addEventListener('click', (e) => {
             e.stopPropagation(); /* Ngăn chặn event click lan ra ngoài */ 
-            aalert(`Sản phẩm ${product.name} (ID: ${product.id}) đã được thêm vào giỏ hàng!`);
+            addToCart(product.id);
         });
         productList.appendChild(productItem);
     });
 }
 createProductList();
+/* Lấy dữ liệu từ dạng mảng */
+let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+function addToCart(id) {
+    const product = products.find(p => p.id === id);
+    cart.push(product);
+
+    localStorage.setItem('cart' ,JSON.stringify(cart));
+    alert(' Sản phẩm ' + product.name + ' đã được thêm vào giỏ hàng! ');
+}

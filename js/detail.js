@@ -64,5 +64,5 @@ function renderProductDetail() {
     }
 }
 
-// Chạy hàm khi load trang
+/*Chạy hàm khi load trang */
 renderProductDetail();

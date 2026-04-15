@@ -91,6 +91,7 @@ button:hover {
 .product-detail button:hover {
   background: #0056b3;
 }
+
 header{
   display : flex;
   justify-content : space-between;
@@ -103,12 +104,14 @@ header{
   z-index : 1000;
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
+
 .logo h1 {
   margin : 0;
   font-size : 24px;
   font-weight : bold;
   color : #333;
 }
+
 nav ul {
   list-style: none;
   display : flex;
@@ -130,4 +133,23 @@ nav ul {
 .size-table th {
   background-color: #f8f9fa;
   font-weight: bold;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+}
+
+.cart-item h3 {
+  width: 200px;
+}
+
+.qty button {
+  padding: 5px 10px;
+  margin: 0 5px;
 }

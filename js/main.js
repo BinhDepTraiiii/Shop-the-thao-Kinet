@@ -27,8 +27,14 @@ let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
 function addToCart(id) {
     const product = products.find(p => p.id === id);
-    cart.push(product);
+    
+    const existing = cart.find(item => item.product && item.product.id === id);
 
-    localStorage.setItem('cart' ,JSON.stringify(cart));
-    alert(' Sản phẩm ' + product.name + ' đã được thêm vào giỏ hàng! ');
+    if (existing) {
+        existing.quantity++;
+    } else {
+        cart.push({ product: product, quantity: 1 });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
 }

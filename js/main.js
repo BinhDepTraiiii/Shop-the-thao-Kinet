@@ -8,7 +8,7 @@ function createProductList() {
             <img src="${product.image}" alt="${product.name}">
             <h3>${product.name}</h3>
             <p>${product.price.toLocaleString()}₫</p>
-            <button class="btn-buy" data-id="${product.id}">Mua</button>
+            <button class="btn-buy" data-id="${product.id}">Thêm vào giỏ hàng</button>
         `;
         productItem.querySelector("h3").addEventListener('click', () => {
             window.location.href = `productDetail.html?id=${product.id}`;

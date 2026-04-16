@@ -96,7 +96,7 @@ header{
   display : flex;
   justify-content : space-between;
   align-items : center;
-  padding : 15px;
+  padding : 15px 30px ;
   background : white;
   border-bottom : 1px solid #eee;
   position : sticky;
@@ -112,6 +112,16 @@ header{
   color : #333;
 }
 
+nav a {
+   margin-left: 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+}
+
+nav a:hover{
+  color: #ff4d4f;
+}
 nav ul {
   list-style: none;
   display : flex;

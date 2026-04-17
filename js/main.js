@@ -38,3 +38,5 @@ function addToCart(id) {
 
     localStorage.setItem("cart", JSON.stringify(cart));
 }
+
+

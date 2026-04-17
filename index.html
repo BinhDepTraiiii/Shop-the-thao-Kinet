@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <div class = "logo">
+        <div class = "logo-header">
             <h1>Kinet</h1>
         </div>
         <nav>
@@ -16,10 +16,56 @@
                 <li><a href="index.html">Trang chủ</a></li>
                 <li><a href="products.html">Sản phẩm</a></li>
                 <li><a href="contact.html">Liên hệ</a></li>
-                <a href="cart.html">Giỏ hàng</a>
+                <li><a href="cart.html">Giỏ hàng</a></li>
             </ul>
         </nav>
     </header>
+<div class="marquee">
+        <div class="track">
+            <div class="group">
+                <svg class="logo-animate" viewBox="0 0 1000 250">
+                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle">
+                    KINET
+                    </text>
+                </svg>
+
+                <svg class="logo-animate" viewBox="0 0 1000 250">
+                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle">
+                    KINET
+                    </text>
+                </svg>
+
+                <svg class="logo-animate" viewBox="0 0 1000 250">
+                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle">
+                    KINET
+                    </text>
+                </svg>
+            </div>
+
+                <!-- Nhân đôi để loop mượt -->
+            <div class="group">
+                <svg class="logo-animate" viewBox="0 0 1000 250">
+                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle">
+                    KINET
+                    </text>
+                </svg>
+
+                <svg class="logo-animate" viewBox="0 0 1000 250">
+                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle">
+                    KINET
+                    </text>
+                </svg>
+
+                <svg class="logo-animate" viewBox="0 0 1000 250">
+                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle">
+                    KINET
+                    </text>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+
     <div id="product-List"></div>
     <div id="product-Detail"></div>
     <h2>Size Chart</h2>
@@ -45,11 +91,9 @@
             <td>65-75kg</td>
         </tr>
     </table>
-    <marquee width = "100%"
-    behavior = "alternate"
-    bgcolor = "blacck"
-    >Kinet</marquee>
+    
     <script src="data/products.js"></script>
     <script src="js/main.js"></script>
+    
 </body>
 </html>

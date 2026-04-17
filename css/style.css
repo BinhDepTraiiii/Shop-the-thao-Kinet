@@ -105,7 +105,7 @@ header{
   box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.logo h1 {
+.logo-header h1 {
   margin : 0;
   font-size : 24px;
   font-weight : bold;
@@ -162,4 +162,53 @@ nav ul {
 .qty button {
   padding: 5px 10px;
   margin: 0 5px;
+}
+
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  background: black;
+  padding: 40px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 10s linear infinite;
+}
+
+.group {
+  display: flex;
+  gap: 120px;
+  padding-right: 120px;
+}
+
+
+.logo-animate {
+  width: 100px; /* chỉnh size tùy bạn */
+}
+
+.logo-animate text {
+  fill: white;
+  font-size: 120px;
+  font-weight: 900;
+  letter-spacing: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.logo-animate {
+  animation: move 5s ease-in-out infinite alternate;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }

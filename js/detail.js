@@ -48,20 +48,40 @@ function renderProductDetail() {
         `;
 
         // Thêm sự kiện cho nút Mua ở trang chi tiết
-        document.getElementById('btn-add-cart').addEventListener('click', () => {
-            const selectedSize = document.getElementById('size-choose').value;
-            alert(`Đã thêm "${product.name}" (Size: ${selectedSize}) vào giỏ hàng!`);
+    document.getElementById('btn-add-cart').addEventListener('click', () => {
+        const selectedSize = document.getElementById('size-choose').value;
+
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+        const existing = cart.find(item => 
+            item.product.id === product.id && item.size === selectedSize
+        );
+
+        if (existing) {
+            existing.quantity++;
+        } else {
+            cart.push({
+                product: product,
+                quantity: 1,
+                size: selectedSize
+            });
+        }
+
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // ✅ thông báo
+        alert(`✅ Đã thêm "${product.name}" (Size: ${selectedSize}) vào giỏ hàng!`);
         });
 
-    } else {
-        // Nếu nhập sai ID hoặc không có sản phẩm
-        detailContainer.innerHTML = `
-            <div style="text-align: center; padding: 50px;">
-                <h2>Sản phẩm không tồn tại!</h2>
-                <a href="index.html" style="color: #007bff; text-decoration: none;">&larr; Quay về trang chủ</a>
-            </div>
-        `;
-    }
+        } else {
+            // Nếu nhập sai ID hoặc không có sản phẩm
+            detailContainer.innerHTML = `
+                <div style="text-align: center; padding: 50px;">
+                    <h2>Sản phẩm không tồn tại!</h2>
+                    <a href="index.html" style="color: #007bff; text-decoration: none;">&larr; Quay về trang chủ</a>
+                </div>
+            `;
+        }
 }
 
 /*Chạy hàm khi load trang */

@@ -1,7 +1,15 @@
 const cartContainer = document.getElementById('cart-container');
 const totalPrice = document.getElementById('total-price');
 
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = [];
+
+async function loadCart() {
+    const res = await fetch("http://localhost:3000/api/cart");
+    cart = await res.json();
+    renderCart();
+}
+
+loadCart();
 
 function renderCart() {
     cartContainer.innerHTML ="";

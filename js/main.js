@@ -10,43 +10,58 @@ function createProductList() {
             <p>${product.price.toLocaleString()}₫</p>
             <button class="btn-buy" data-id="${product.id}">Thêm vào giỏ hàng</button>
         `;
+        
+        // Click vào tên để xem chi tiết
         productItem.querySelector("h3").addEventListener('click', () => {
             window.location.href = `productDetail.html?id=${product.id}`;
         });
+        
+        // Nút thêm giỏ hàng ở ngoài trang chủ (Mặc định cho size M)
         const btnBuy = productItem.querySelector('.btn-buy');
         btnBuy.addEventListener('click', (e) => {
-            e.stopPropagation(); /* Ngăn chặn event click lan ra ngoài */ 
+            e.stopPropagation();
             addToCart(product);
         });
+        
         productList.appendChild(productItem);
     });
 }
-createProductList();
-/* Lấy dữ liệu từ dạng mảng */
-let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-function updateCartCount(){
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    let total = 0;
-    cart.forEach(item => {
-        total += item.quantity; 
-    });
-    document.getElementById("cart-count").innerText = total;
+// Lấy tổng số lượng để hiện lên icon giỏ hàng (nếu có)
+async function updateCartCount() {
+    try {
+        const res = await fetch("http://localhost:3000/api/cart");
+        const cart = await res.json();
+        let total = 0;
+        cart.forEach(item => total += item.quantity);
+        
+        const countEl = document.getElementById("cart-count");
+        if (countEl) countEl.innerText = total;
+    } catch (error) {
+        console.error("Chưa bật server Backend:", error);
+    }
 }
 
 async function addToCart(product) {
-   await fetch("http://localhost:3000/api/cart", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            product: product,
-            quantity: 1
-        })
-    });
-    alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
+    try {
+        const res = await fetch("http://localhost:3000/api/cart", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                product: product,
+                quantity: 1,
+                size: "M" // Mặc định size M nếu mua nhanh ở trang chủ
+            })
+        });
+        
+        if (res.ok) {
+            alert(`Đã thêm "${product.name}" vào giỏ hàng!`);
+            updateCartCount();
+        }
+    } catch (error) {
+        alert("Lỗi: Không thể kết nối đến máy chủ. Bạn đã chạy node server.js chưa?");
+    }
 }
 
-
+createProductList();
 updateCartCount();

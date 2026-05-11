@@ -247,6 +247,10 @@ nav ul {
   cursor: pointer;
 }
 
+#sizechart {
+  padding : 15px;
+  text
+}
 @keyframes scroll {
   from {
     transform: translateX(0);
